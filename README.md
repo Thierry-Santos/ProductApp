@@ -1,6 +1,8 @@
 # Product List App
 
-This is a React Native application that allows users to view and interact with a list of products. The app includes features such as filtering, sorting, and viewing detailed product information.
+This is a React Native application that allows users to view and interact with a list of products. The app utilizes the DummyJSON API to fetch product data, and includes features such as filtering, sorting, and viewing detailed product information. Additionally, the app supports local push notifications triggered by the app itself.
+
+This project use
 
 ## Features
 
@@ -8,6 +10,9 @@ This is a React Native application that allows users to view and interact with a
 - **Filter by Category:** Users can filter products by different categories.
 - **Sort by Price or Ratings:** Products can be sorted by price or user ratings.
 - **Product Details:** By clicking on a product, users are redirected to a new screen that contains more detailed information about the product.
+- **Push Notifications:** The app includes a local push notification feature, triggered by the app itself.
+- **Deep Link:** The app includes a deep link integration that opens the app to a specific product by the product id.
+- **Native Module:** The app includes a native module that allow the user to create a on hour event on the user app calendar.
 
 ## Requirements
 
@@ -57,6 +62,22 @@ To run this project locally, you'll need to have the following tools installed:
    ```bash
    npx react-native run-android
    ```
+
+## Deep Link
+
+For testing Deep link on android/ios run this commands:
+
+1. IOS
+
+```bash
+npx uri-scheme open "productapp://product/1" --ios
+```
+
+2. ANDROID
+
+```bash
+npx uri-scheme open "productapp://product/1" --android
+```
 
 ## License
 

@@ -54,9 +54,20 @@ export const Body = Styled.View`
 export const Label = Styled.Text`
   font-size: 18px;
   font-weight: bold;
-  `;
+`;
 
 export const Value = Styled.Text`
   font-size: 18px;
   font-weight: 400;
 `;
+
+export const Footer = Styled.Pressable`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 10px;
+  gap: 10px;
+`;
+

@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, Text } from 'react-native';
+import { ActivityIndicator, Alert, NativeModules } from 'react-native';
+import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
 import * as service from '../../services';
-
 import * as S from './styles';
 import { IProductItem } from '../../types';
 import { INFOS_PRODUCT_ITEM } from '../../constants';
-import { NativeModules } from 'react-native';
 
 const Home: React.FC = ({ route }) => {
   const { CalendarModule } = NativeModules;
@@ -16,19 +15,15 @@ const Home: React.FC = ({ route }) => {
   const addEventToCalendar = () => {
     const title = 'Important Reminder';
     const description = 'You still have a product to buy today!';
-    const startDate = (new Date()).getTime();
-    const endDate = startDate + 3600000;
 
     CalendarModule.addEvent(
       title,
       description,
-      startDate.toString(),
-      endDate.toString(),
       (successMessage: string) => {
-        Alert.alert('Sucesso', successMessage);
+        Alert.alert('Success', successMessage);
       },
       (errorMessage: string) => {
-        Alert.alert('Erro', errorMessage);
+        Alert.alert('Error', errorMessage);
       }
     );
   };
@@ -63,10 +58,11 @@ const Home: React.FC = ({ route }) => {
           <S.Label>Brand: <S.Value>{productItem.brand}</S.Value></S.Label>
           <S.Label>Description: <S.Value>{productItem.description}</S.Value></S.Label>
           <S.Label>Stock: <S.Value>{productItem.stock}</S.Value></S.Label>
-          <Pressable onPress={addEventToCalendar}>
-            <Text>CLICK ME</Text>
-          </Pressable>
         </S.Body>
+        <S.Footer onPress={addEventToCalendar}>
+          <S.Label>Create a reminder</S.Label>
+          <FontAwesome6 name="bell" iconStyle="solid" />
+        </S.Footer>
       </S.Container>
       :
       <S.Loading>

@@ -164,7 +164,7 @@ const Home: React.FC = ({ navigation }) => {
         }
         estimatedItemSize={200}
         onEndReached={getProducts}
-        ListEmptyComponent={!loading ? <Text>Nenhum item encontrado!</Text> : <></>}
+        ListEmptyComponent={!loading ? <Text>No items found!</Text> : <></>}
       />
     </S.Container>
   );
