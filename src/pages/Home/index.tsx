@@ -97,13 +97,11 @@ const Home: React.FC = ({ navigation }) => {
   useEffect(() => {
     notifee.requestPermission().then((granted) => {
       if (granted) {
-        console.log('Permissão concedida para notificações!');
+        setTimeout(() => {
+          sendNotification();
+        }, 10000);
       }
     });
-
-    setTimeout(() => {
-      sendNotification();
-    }, 10000);
   }, []);
 
   useEffect(() => {

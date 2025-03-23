@@ -5,8 +5,6 @@ import { BASE_URL, BASE_URL_CATEGORIES } from '../constants';
 export const getProducts = async (
   path: string, queryString: string
 ): Promise<IProductItem[]> => {
-  console.log(path, queryString);
-
   try {
     const { data } = await axios.get(`${path}?${queryString}`);
 
