@@ -14,9 +14,8 @@ const Home: React.FC = ({ route }) => {
   const [productItem, setProductItem] = useState<IProductItem | null>(null);
 
   const addEventToCalendar = () => {
-    const productName = productItem?.title ?? 'product';
     const title = 'Important Reminder';
-    const description = `You still have a ${productName} to buy today!`;
+    const description = 'You still have a product to buy today!';
     const startDate = (new Date()).getTime();
     const endDate = startDate + 3600000;
 

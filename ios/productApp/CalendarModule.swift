@@ -4,8 +4,7 @@ import React
 
 @objc(CalendarModule)
 class CalendarModule: NSObject {
-  
-  // Método para adicionar um evento ao calendário
+
   @objc func addEvent(_ title: String, 
                       description: String, 
                       startDate: String, 
@@ -13,17 +12,14 @@ class CalendarModule: NSObject {
                       successCallback: @escaping RCTResponseSenderBlock, 
                       errorCallback: @escaping RCTResponseSenderBlock) {
     
-    // Solicitar acesso ao calendário
     let eventStore = EKEventStore()
     
     eventStore.requestAccess(to: .event) { (granted, error) in
       if granted {
-        // Converter as strings de data em objetos Date
         if let start = Double(startDate), let end = Double(endDate) {
           let startDate = Date(timeIntervalSince1970: start)
           let endDate = Date(timeIntervalSince1970: end)
           
-          // Criar o evento
           let event = EKEvent(eventStore: eventStore)
           event.title = title
           event.notes = description
@@ -33,15 +29,15 @@ class CalendarModule: NSObject {
           
           do {
             try eventStore.save(event, span: .thisEvent)
-            successCallback([ "Evento adicionado com sucesso" ])
+            successCallback([ "Event created with success" ])
           } catch {
-            errorCallback([ "Erro ao salvar evento: \(error.localizedDescription)" ])
+            errorCallback([ "Fail to create the event: \(error.localizedDescription)" ])
           }
         } else {
-          errorCallback([ "Data inválida" ])
+          errorCallback([ "Invalid date" ])
         }
       } else {
-        errorCallback([ "Permissão negada para acessar o calendário" ])
+        errorCallback([ "Permission denied for using calendar" ])
       }
     }
   }

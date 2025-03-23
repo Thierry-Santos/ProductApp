@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Text, Pressable, ActivityIndicator } from 'react-native';
+import { Text } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import DropDownPicker, { ItemType } from 'react-native-dropdown-picker';
 import * as service from '../../services';
@@ -31,7 +31,7 @@ const Home: React.FC = ({ navigation }) => {
     setLoading(true);
 
     const url = selectedCategoryItem.value;
-    const queryString = 
+    const queryString =
       `limit=${LIMIT}&skip=${productCount}&select=${INFOS_PRODUCT}&sortBy=${sortBy}&order=${sortOrder}`;
 
     const products = await service.getProducts(url, queryString);
@@ -103,7 +103,7 @@ const Home: React.FC = ({ navigation }) => {
 
     setTimeout(() => {
       sendNotification();
-    }, 5000);
+    }, 10000);
   }, []);
 
   useEffect(() => {
@@ -153,7 +153,7 @@ const Home: React.FC = ({ navigation }) => {
         refreshing={loading}
         onRefresh={getProducts}
         data={productsList}
-        renderItem={({ item }) => 
+        renderItem={({ item }) =>
           <ProductItem
             title={item.title}
             price={item.price}
