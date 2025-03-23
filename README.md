@@ -22,8 +22,8 @@ To run this project locally, you'll need to have the following tools installed:
 1. Clone the repository to your local machine.
    
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   git clone https://github.com/Thierry-Santos/ProductApp.git
+   cd ProductApp
    ```
 
 2. Install dependencies:
