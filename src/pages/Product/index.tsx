@@ -59,7 +59,7 @@ const Home: React.FC = ({ route }) => {
           <S.Label>Description: <S.Value>{productItem.description}</S.Value></S.Label>
           <S.Label>Stock: <S.Value>{productItem.stock}</S.Value></S.Label>
         </S.Body>
-        <S.Footer onPress={addEventToCalendar}>
+        <S.Footer onPress={addEventToCalendar} testID="create-reminder-button">
           <S.Label>Create a reminder</S.Label>
           <FontAwesome6 name="bell" iconStyle="solid" />
         </S.Footer>

@@ -131,6 +131,7 @@ const Home: React.FC = ({ navigation }) => {
         setOpen={setCategoryOpen}
         setValue={setSelectedCategory}
         onSelectItem={setSelectedCategoryItem}
+        testID="dropDownPicker"
       />
       <S.Subtitles>Sort:</S.Subtitles>
       <S.SortList>
@@ -142,6 +143,7 @@ const Home: React.FC = ({ navigation }) => {
               icon={icon}
               active={active}
               action={() => sortAction(index)}
+              testID={`sort-button-${index}`}
             />
           );
         })}
